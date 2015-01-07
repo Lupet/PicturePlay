@@ -1,0 +1,20 @@
+@(form: Form[Application.UserForm])
+
+@main{
+<div class="container">
+    @helper.form(routes.Login.doLogin(), 'class -> "form-signin"){
+        <h2 class="form-signin-heading">Anmelden</h2>
+        @helper.inputText(form("username"), 'class->"form-control", 'type->"text", '_label->"Name")
+        @helper.inputText(form("password"), 'class->"form-control", 'type->"password", '_label->"Passwort")
+        <button type="submit" class="btn btn-lg btn-primary btn-block" onclick="">Anmelden</button>
+        <div class="form-group">
+            <div class="col-md-12 control">
+                <div>
+                    Noch kein Account?
+                    <a href="@routes.Application.register()">Hier registrieren!</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+}

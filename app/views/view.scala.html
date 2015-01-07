@@ -1,0 +1,15 @@
+@(pictures : List[Picture])
+
+@welcome{
+    <div class="container">
+        <div class="starter-template">
+            <h2>Betrachte deine Bilder:</h2>
+        </div>
+        <div id="images" class="row">
+            @for(pic <- pictures){
+                <p>@pic.getName</p>
+                <img src="@pic.getData"/>
+            }
+        </div>
+    </div>
+}

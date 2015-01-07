@@ -1,0 +1,20 @@
+@(form: Form[Application.PictureForm])
+
+@welcome{
+    <div class="container">
+        <h2>Bilder hochladen</h2>
+        @helper.form(routes.Pictures.upload(), 'enctype -> "multipart/form-data"){
+            <div class="form-group">
+                @helper.inputText(form("name"), 'class->"form-control", 'type->"text", '_label->"Name:")
+                @helper.inputText(form("desription"), 'class->"form-control", 'type->"text", '_label->"Beschreibung:")
+            </div>
+            @helper.input(form("file"), '_label->"Bild:") { (id, name, value, args) =>
+                <input id="@id" name="@name" type="file" class="filestyle" data-buttonBefore="true" data-icon="false" multiple="false" data-buttonText="Bild ausw&auml;hlen" @toHtmlArgs(args)>
+            }
+            @helper.checkbox(form("isPrivate"), '_label->"Öffentlich")
+            <br />
+            <button type="submit" class="btn btn-default">Hochladen</button>
+            <br />
+        }
+    </div>
+}
